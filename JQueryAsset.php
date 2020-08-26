@@ -15,11 +15,11 @@ class JQueryAsset extends \BasicApp\Asset\BaseAsset
 
         if ($minified)
         {
-            $this->js[] = 'assets/jquery/jquery.min.js';
+            $this->js[] = base_url('assets/jquery/jquery.min.js');
         }
         else
         {
-            $this->js[] = 'assets/jquery/jquery.js';
+            $this->js[] = base_url('assets/jquery/jquery.js');
         }
     }
 
