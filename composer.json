@@ -1,0 +1,13 @@
+{
+    "name": "basic-app/jquery",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BasicApp\\JQuery\\": ""
+        }
+    },
+    "require": {
+        "basic-app/asset": "*",
+        "basic-app/publisher": "*"
+    }
+}
