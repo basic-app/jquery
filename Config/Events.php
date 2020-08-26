@@ -12,9 +12,18 @@ PublisherEvents::onPublish(function(PublishEvent $event) {
 
     $config = config(JQuery::class);
 
-    $url = 'https://code.jquery.com/jquery-' . $config->version . '.min.js';
+    if ($config->minified)
+    {
+        $url = 'https://code.jquery.com/jquery-' . $config->version . '.min.js';
 
-    $target = FCPATH . 'assets/jquery/jquery.min.js';
+        $target = FCPATH . 'assets/jquery/jquery.min.js';
+    }
+    else
+    {
+        $url = 'https://code.jquery.com/jquery-' . $config->version . '.js';
+    
+        $target = FCPATH . 'assets/jquery/jquery.js';
+    }
 
     $event->download($url, $target, $event->refresh ? true : false);
-}); 
+});

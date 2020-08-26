@@ -13,4 +13,6 @@ class JQuery extends \CodeIgniter\Config\BaseConfig
 
     public $url;
 
+    public $minified = true;
+
 }

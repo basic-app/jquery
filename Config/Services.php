@@ -24,7 +24,7 @@ class Services extends \CodeIgniter\Config\BaseService
             }
             else
             {
-                return new JQueryAsset(__FUNCTION__);
+                return new JQueryAsset(__FUNCTION__, $config->minified);
             }
         }
 
