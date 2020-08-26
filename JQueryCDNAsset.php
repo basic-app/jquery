@@ -6,8 +6,6 @@
  */
 namespace BasicApp\JQuery;
 
-use BasicApp\JQuery\Config\JQuery as JQuery;
-
 class JQueryCDNAsset extends \BasicApp\Asset\BaseAsset
 {
 
@@ -15,7 +13,7 @@ class JQueryCDNAsset extends \BasicApp\Asset\BaseAsset
     {
         parent::__construct($id);
 
-        $this->js[] = $config->url;
+        $this->js[] = $url;
     }
 
 }
