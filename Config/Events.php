@@ -8,22 +8,21 @@ use BasicApp\Publisher\PublisherEvents;
 use BasicApp\Publisher\Events\PublishEvent;
 use BasicApp\JQuery\Config\JQuery;
 
-PublisherEvents::onPublish(function(PublishEvent $event) {
+PublisherEvents::onPublish(function(PublishEvent $event)
+{
+    helper('path');
 
     $config = config(JQuery::class);
 
-    if ($config->minified)
-    {
-        $url = 'https://code.jquery.com/jquery-' . $config->version . '.min.js';
-
-        $target = FCPATH . 'assets/jquery/jquery.min.js';
-    }
-    else
-    {
-        $url = 'https://code.jquery.com/jquery-' . $config->version . '.js';
+    $event->download(
+        'https://code.jquery.com/jquery-' . $config->version . '.min.js', 
+        fcpath('assets/jquery/jquery.min.js'), 
+        $event->refresh ? true : false
+    );
     
-        $target = FCPATH . 'assets/jquery/jquery.js';
-    }
-
-    $event->download($url, $target, $event->refresh ? true : false);
+    $event->download(
+        'https://code.jquery.com/jquery-' . $config->version . '.js', 
+        fcpath('assets/jquery/jquery.js'), 
+        $event->refresh ? true : false
+    );
 });

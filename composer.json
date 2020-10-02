@@ -7,8 +7,8 @@
         }
     },
     "require": {
-        "codeigniter4/framework": "*",
         "basic-app/asset": "*",
-        "basic-app/publisher": "*"
+        "basic-app/publisher": "*",
+        "basic-app/path-helper": "*"
     }
 }
