@@ -18,9 +18,9 @@ class Services extends \CodeIgniter\Config\BaseService
         {
             $config = config(JQuery::class);
 
-            if ($config->url)
+            if ($config->useCdn)
             {
-                return new JQueryCDNAsset(__FUNCTION__, $config->url);
+                return new JQueryCDNAsset(__FUNCTION__, $config->cdnUrl, $config->version, $config->minified);
             }
             else
             {

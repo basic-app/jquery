@@ -11,7 +11,9 @@ class JQuery extends \CodeIgniter\Config\BaseConfig
 
     public $version = '3.5.1';
 
-    public $url;
+    public $cdnUrl = 'https://ajax.googleapis.com/ajax/libs/jquery';
+
+    public $useCdn = false;
 
     public $minified = true;
 
