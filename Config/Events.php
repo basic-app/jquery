@@ -15,16 +15,23 @@ PublisherEvents::onPublish(
 
         $config = config(JQuery::class);
 
-        $event->download(
+        $publisher = service('publisher');
+
+        if ($event->refresh)
+        {
+            $publisher->deleteIfExists(fcpath('assets/jquery'));
+        }
+
+        $publisher->download(
             'https://code.jquery.com/jquery-' . $config->version . '.min.js', 
             fcpath('assets/jquery/jquery.min.js'), 
-            $event->refresh ? true : false
+            $event->refresh
         );
         
-        $event->download(
+        $publisher->download(
             'https://code.jquery.com/jquery-' . $config->version . '.js', 
             fcpath('assets/jquery/jquery.js'), 
-            $event->refresh ? true : false
+            $event->refresh
         );
     }
 );
