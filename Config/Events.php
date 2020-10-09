@@ -22,16 +22,14 @@ PublisherEvents::onPublish(
             $publisher->deleteIfExists(fcpath('assets/jquery'));
         }
 
-        $publisher->download(
+        $publisher->downloadIfNotExists(
             'https://code.jquery.com/jquery-' . $config->version . '.min.js', 
-            fcpath('assets/jquery/jquery.min.js'), 
-            $event->refresh
+            fcpath('assets/jquery/jquery.min.js')
         );
         
-        $publisher->download(
+        $publisher->downloadIfNotExists(
             'https://code.jquery.com/jquery-' . $config->version . '.js', 
-            fcpath('assets/jquery/jquery.js'), 
-            $event->refresh
+            fcpath('assets/jquery/jquery.js')
         );
     }
 );
